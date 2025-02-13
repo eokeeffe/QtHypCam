@@ -47,9 +47,9 @@ WORKDIR /home/root/
 
 RUN mkdir /home/root/src
 
-#ADD ./* /home/root/src/
+COPY ./ /home/root/src/
 
-RUN cd /home/root/src && git clone https://github.com/JairoSalazarV/QtHypCam && cd QtHypCam && qmake HypCam.pro && make -j2
-
+RUN cd /home/root/src && qmake HypCam.pro && make -j2
+#RUN cd /home/root/src && git clone https://github.com/JairoSalazarV/QtHypCam && cd QtHypCam && qmake HypCam.pro && make -j2
 	
-ENTRYPOINT ["/home/root/src/QtHypCam/HypCam"]
+ENTRYPOINT ["/home/root/src/HypCam"]
